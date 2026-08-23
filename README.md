@@ -36,7 +36,7 @@ docker run -d --name pg -e POSTGRES_PASSWORD=xxx -p 5432:5432 pgvector/pgvector:
 # 2. 重排服务
 docker run -d --name reranker -p 9080:80 -v /path/to/bge-reranker-v2-m3:/data/model \
 ghcr.io/huggingface/text-embeddings-inference:cpu-latest --model-id /data/model
-# 3. 配置:复制 .env.yml.example,填入 API_KEY 等
+# 3. 配置:复制 .env.example,填入 API_KEY 等
 # 4. 启动后:POST /document/upload 传笔记 → POST /chat/talk 提问
 ```
 
