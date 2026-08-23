@@ -1,0 +1,121 @@
+[   {
+        "id": "q001",
+        "question": "Redis 的持久化机制有哪些？",
+        "expected_sources": ["Redis持久化.md"],       
+        "expected_points": ["rdb", "aof", "混合持久化"],
+        "refuse": false
+    },{
+        "id": "q002",
+        "question": "什么是混合持久化？",
+        "expected_sources": ["Redis持久化.md"],       
+        "expected_points": ["rdb", "aof", "混合持久化"],
+        "refuse": false
+    },{
+        "id": "q003",
+        "question": "Redis的数据结构有哪些？",
+        "expected_sources": ["Redis数据结构.md"],       
+        "expected_points": ["跳表", "listpack", "dict", "哈希表"],
+        "refuse": false
+    },{
+        "id": "q004",
+        "question": "Redis缓存穿透是什么？怎么解决？",
+        "expected_sources": ["Redis三大经典问题.md"],       
+        "expected_points": ["恶意攻击", "业务漏洞", "缓存空对象", "布隆过滤器"],
+        "refuse": false
+    },{
+        "id": "q005",
+        "question": "Redis缓存击穿与缓存穿透有什么区别？怎么解决？",
+        "expected_sources": ["Redis三大经典问题.md"],       
+        "expected_points": ["不存在", "过期", "互斥锁", "永不过期"],
+        "refuse": false
+    },{
+        "id": "q006",
+        "question": "Redis缓存雪崩与缓存击穿有什么区别？怎么解决？",
+        "expected_sources": ["Redis三大经典问题.md"],       
+        "expected_points": ["同时过期", "TTL随机化", "多级缓存", "熔断", "降级", "高可用"],
+        "refuse": false
+    },{
+        "id": "q007",
+        "question": "Redis过期删除策略有哪些？",
+        "expected_sources": ["Redis过期与内存淘汰.md"],       
+        "expected_points": ["定时", "定期", "惰性", "内存淘汰"],
+        "refuse": false
+    },{
+        "id": "q008",
+        "question": "Redis内存淘汰策略有哪些？",
+        "expected_sources": ["Redis过期与内存淘汰.md"],       
+        "expected_points": ["lru", "lfu", "8种"],
+        "refuse": false
+    },{
+        "id": "q009",
+        "question": "Redis为什么快？",
+        "expected_sources": ["Redis线程模型.md"],       
+        "expected_points": ["内存", "高效", "单线程", "多路复用"],
+        "refuse": false
+    },{
+        "id": "q010",
+        "question": "Redis所有模块都支持多线程吗？",
+        "expected_sources": ["Redis线程模型.md"],       
+        "expected_points": ["网络io", "命令"],
+        "refuse": false
+    },{
+        "id": "q011",
+        "question": "Redis多路复用是什么原理？",
+        "expected_sources": ["Redis线程模型.md"],       
+        "expected_points": ["同时监听", "操作系统"],
+        "refuse": false
+    },{
+        "id": "q012",
+        "question": "RDB和AOF有什么区别？",
+        "expected_sources": ["Redis持久化.md"],       
+        "expected_points": ["快照", "追加", "cow"],
+        "refuse": false
+    },{
+        "id": "q013",
+        "question": "什么是COW?",
+        "expected_sources": ["Redis持久化.md"],       
+        "expected_points": ["写时复制", "共享", "内存占用"],
+        "refuse": false
+    },{
+        "id": "q014",
+        "question": "AOF的写入策略是什么?哪种性能最好？哪种最安全？",
+        "expected_sources": ["Redis持久化.md"],       
+        "expected_points": ["always", "everysec", "不主动"],
+        "refuse": false
+    },{
+        "id": "q015",
+        "question": "RDB和AOF分别有什么优缺点？",
+        "expected_sources": ["Redis持久化.md"],       
+        "expected_points": ["紧凑", "备份", "容灾"],
+        "refuse": false
+    },{
+        "id": "q016",
+        "question": "MySQL RR和RC有什么区别？",
+        "expected_sources": [],       
+        "expected_points": [],
+        "refuse": true
+    },{
+        "id": "q017",
+        "question": "Python中的GIL是什么？",
+        "expected_sources": [],       
+        "expected_points": [],
+        "refuse": true
+    },{
+        "id": "q018",
+        "question": "Mysql索引是什么数据结构？",
+        "expected_sources": [],       
+        "expected_points": [] ,
+        "refuse": true
+    },{
+        "id": "q019",
+        "question": "Redis分布式锁怎么实现？setNx有什么问题？",
+        "expected_sources": ["Redis分布式锁.md"],       
+        "expected_points": ["setnx", "看门狗", "lua"],
+        "refuse": false
+    },{
+        "id": "q020",
+        "question": "红锁（RedLock）为什么有争议？",
+        "expected_sources": ["Redis分布式锁.md"],       
+        "expected_points": ["时钟", "性能开销"],
+        "refuse": false
+    }]

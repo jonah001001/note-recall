@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: note-recall
+  ai:
+    model:
+      chat: deepseek
+      embedding: ollama
+    deepseek:
+      api-key: ${DEEPSEEK_API_KEY}
+      base-url: ${DEEPSEEK_BASE_URL}
+      chat:
+        options:
+          model: ${DEEPSEEK_MODEL_NAME}
+    ollama:
+      base-url: ${OLLAMA_BASE_URL}
+      embedding:
+        options:
+          model: ${OLLAMA_MODEL_NAME}
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        dimensions: 1024
+        index-type: hnsw
+        distance-type: cosine_distance
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: always
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}/smart-note
+    username: ${DB_USER}
+    password: ${DB_PASS}
+
+rerank:
+  base-url: ${RERANK_BASE_URL}
+  model: ${RERANK_MODEL}
+  top-n: 10
+
+
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor: DEBUG
