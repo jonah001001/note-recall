@@ -33,10 +33,10 @@ graph LR
 ```bash
 # 1. 向量库
 docker run -d --name pg -e POSTGRES_PASSWORD=xxx -p 5432:5432 pgvector/pgvector:pg17
-# 2. 重排服务(模型下载见 docs,国内环境建议手动下载后挂载)
+# 2. 重排服务
 docker run -d --name reranker -p 9080:80 -v /path/to/bge-reranker-v2-m3:/data/model \
 ghcr.io/huggingface/text-embeddings-inference:cpu-latest --model-id /data/model
-# 3. 配置:复制 application-example.yml,填入 API_KEY 等
+# 3. 配置:复制 .env.yml.example,填入 API_KEY 等
 # 4. 启动后:POST /document/upload 传笔记 → POST /chat/talk 提问
 ```
 
