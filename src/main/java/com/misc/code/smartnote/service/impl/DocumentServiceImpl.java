@@ -9,6 +9,7 @@ import org.springframework.ai.reader.markdown.MarkdownDocumentReader;
 import org.springframework.ai.reader.markdown.config.MarkdownDocumentReaderConfig;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.VectorStore;
+import org.springframework.ai.vectorstore.filter.FilterExpressionBuilder;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -68,6 +69,8 @@ public class DocumentServiceImpl implements DocumentService {
                     return new Document(header + c.getText(), c.getMetadata());
                 })
                 .toList();
+        vectorStore.delete(new FilterExpressionBuilder()
+                .eq("filename", fileName).build());
         vectorStore.add(enriched);
     }
 }
