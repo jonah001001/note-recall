@@ -1,3 +1,4 @@
+# ConcurrentHashMap原理
 ## 一、核心基础问题解析
 ### 1. CHM 1.8 的 Node[] 数组，元素都是 Node 类型吗？还是有不同子类？
 CHM 中的 Node[] 数组，元素不全是 Node 类型，还包含 TreeNode、ForwardingNode、ReservationNode、TreeBin 四种子类，因此 CHM 存储数据量变化时，可能带来数据结构的变化。

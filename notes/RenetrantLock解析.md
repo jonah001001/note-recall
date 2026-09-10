@@ -1,3 +1,4 @@
+# ReentrantLock解析
 ## 一、核心基础
 ReentrantLock 基于 AQS（AbstractQueuedSynchronizer）实现，核心是通过 state 状态控制锁的获取与释放，结合队列管理等待线程。
 

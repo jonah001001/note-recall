@@ -1,3 +1,4 @@
+# Redis数据结构
 ## 一、对象机制
 ### **Redis 里,每个 value 都被封装成一个 redisObject 对象,它有几个关键字段:  **
 + **type**:对象类型——就是那 5 种(String/List/Hash/Set/ZSet)
