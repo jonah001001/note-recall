@@ -91,9 +91,9 @@
     },{
         "id": "q016",
         "question": "MySQL RR和RC有什么区别？",
-        "expected_sources": [],       
-        "expected_points": [],
-        "refuse": true
+        "expected_sources": ["MVCC原理.md"],
+        "expected_points": ["ReadView", "读已提交", "可重复读", "可见性"],
+        "refuse": false
     },{
         "id": "q017",
         "question": "Python中的GIL是什么？",
@@ -103,9 +103,9 @@
     },{
         "id": "q018",
         "question": "Mysql索引是什么数据结构？",
-        "expected_sources": [],       
-        "expected_points": [] ,
-        "refuse": true
+        "expected_sources": ["MySQL原理.md"],
+        "expected_points": ["B+树"] ,
+        "refuse": false
     },{
         "id": "q019",
         "question": "Redis分布式锁怎么实现？setNx有什么问题？",
@@ -117,5 +117,65 @@
         "question": "红锁（RedLock）为什么有争议？",
         "expected_sources": ["Redis分布式锁.md"],       
         "expected_points": ["时钟", "性能开销"],
+        "refuse": false
+    },{
+        "id": "q021",
+        "question": "双亲委派模型是什么？",
+        "expected_sources": ["类加载与双亲委派.md"],
+        "expected_points": ["往上委派", "重复加载"],
+        "refuse": false
+    },{
+        "id": "q022",
+        "question": "如何打破双亲委派？",
+        "expected_sources": ["类加载与双亲委派.md"],
+        "expected_points": ["SPI", "Tomcat", "热部署"],
+        "refuse": false
+    },{
+        "id": "q023",
+        "question": "垃圾回收算法有哪些？各有什么优缺点？",
+        "expected_sources": ["垃圾回收（GC）.md"],
+        "expected_points": ["复制", "整理", "清除", "碎片", "空间"],
+        "refuse": false
+    },{
+        "id": "q024",
+        "question": "ReentrantLock的加锁流程是怎么样的？",
+        "expected_sources": ["RenetrantLock解析.md"],
+        "expected_points": ["CAS", "修改state", "队列", "虚拟head"],
+        "refuse": false
+    },{
+        "id": "q025",
+        "question": "CLH队列是什么？为什么原生的CLH不支持java？变种的CLH做了什么？",
+        "expected_sources": ["AQS设计思想.md"],
+        "expected_points": ["自旋", "阻塞", "CPU空转", "next指针"],
+        "refuse": false
+    },{
+        "id": "q026",
+        "question": "Semaphore, CountDownLatch和线程池都是基于什么实现的？state在这三个组件里面的含义分别有什么区别？",
+        "expected_sources": ["CountDownLatch解析.md", "线程池原理.md"],
+        "expected_points": ["AQS", "许可证", "worker状态"],
+        "refuse": false
+    },{
+        "id": "q027",
+        "question": "MySQL的undo log, redo log和binlog有什么区别？分别用于什么场景？",
+        "expected_sources": ["MySQL日志.md"],
+        "expected_points": ["crash safe", "恢复", "回滚", "innodb"],
+        "refuse": false
+    }, {
+        "id": "q028",
+        "question": "什么是MySQL事务的两阶段提交？",
+        "expected_sources": ["MySQL日志.md"],
+        "expected_points": ["prepare", "commit", "binlog"],
+        "refuse": false
+    },{
+        "id": "q029",
+        "question": "ConcurrentHashMap的sizeCtl有几种值？分别对应什么含义？",
+        "expected_sources": ["ConcurrentHashMap原理.md"],
+        "expected_points": ["初始化", "扩容"],
+        "refuse": false
+    },{
+        "id": "q030",
+        "question": "MySQL锁有几种？分别锁的是什么对象？",
+        "expected_sources": ["MySQL锁.md"],
+        "expected_points": ["行锁", "间隙锁", "索引", "范围"],
         "refuse": false
     }]
