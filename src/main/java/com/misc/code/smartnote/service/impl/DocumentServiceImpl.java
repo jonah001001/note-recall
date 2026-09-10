@@ -42,6 +42,13 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
+    public void batchIngest(List<MultipartFile> files) throws IOException {
+        for (MultipartFile file : files){
+            ingest(file);
+        }
+    }
+
+    @Override
     public void ingest(String fileName, InputStream is) {
         InputStreamResource resource = new InputStreamResource(is);
         MarkdownDocumentReaderConfig config = MarkdownDocumentReaderConfig.builder()
