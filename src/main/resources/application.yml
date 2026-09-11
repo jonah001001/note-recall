@@ -30,6 +30,11 @@ spring:
         repository:
           jdbc:
             initialize-schema: always
+    mcp:
+      server:
+        name: note-recall
+        version: 1.0.0
+        protocol: streamable
   datasource:
     url: jdbc:postgresql://${DB_HOST}/smart-note
     username: ${DB_USER}

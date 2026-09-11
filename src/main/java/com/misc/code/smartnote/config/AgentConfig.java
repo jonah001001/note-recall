@@ -15,7 +15,10 @@ import org.springframework.ai.rag.advisor.RetrievalAugmentationAdvisor;
 import org.springframework.ai.rag.generation.augmentation.ContextualQueryAugmenter;
 import org.springframework.ai.rag.preretrieval.query.transformation.CompressionQueryTransformer;
 import org.springframework.ai.rag.preretrieval.query.transformation.QueryTransformer;
+import org.springframework.ai.rag.retrieval.search.DocumentRetriever;
 import org.springframework.ai.rag.retrieval.search.VectorStoreDocumentRetriever;
+import org.springframework.ai.tool.ToolCallbackProvider;
+import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -61,7 +64,7 @@ public class AgentConfig {
 
     @Bean
     public ChatClient chatClient(ChatClient.Builder builder,
-                                 VectorStore vectorStore,
+                                 DocumentRetriever documentRetriever,
                                  ChatMemory chatMemory,
                                  RerankPostProcessor rerankPostProcessor){
         CompressionQueryTransformer compression = CompressionQueryTransformer.builder()
@@ -75,11 +78,7 @@ public class AgentConfig {
         };
 
         RetrievalAugmentationAdvisor ragAdvisor = RetrievalAugmentationAdvisor.builder()
-                .documentRetriever(VectorStoreDocumentRetriever.builder()
-                        .vectorStore(vectorStore)
-                        .topK(20)
-                        .similarityThreshold(0.35)
-                        .build())
+                .documentRetriever(documentRetriever)
                 .documentPostProcessors(rerankPostProcessor)
                 .queryAugmenter(ContextualQueryAugmenter.builder()
                         .promptTemplate(new PromptTemplate(QA_PROMPT_TEMPLATE))
@@ -99,6 +98,14 @@ public class AgentConfig {
                 .build();
     }
 
+    @Bean
+    public DocumentRetriever documentRetriever(VectorStore vectorStore){
+        return VectorStoreDocumentRetriever.builder()
+                .vectorStore(vectorStore)
+                .topK(20)
+                .similarityThreshold(0.35)
+                .build();
+    }
 
     @Bean(name = "agentClient")
     public ChatClient agentClient(ChatClient.Builder builder,
@@ -119,6 +126,13 @@ public class AgentConfig {
         return MessageWindowChatMemory.builder()
                 .chatMemoryRepository(repository)
                 .maxMessages(20)
+                .build();
+    }
+
+    @Bean
+    public ToolCallbackProvider noteMcpTools(NoteTools noteTools) {
+        return MethodToolCallbackProvider.builder()
+                .toolObjects(noteTools)
                 .build();
     }
 }

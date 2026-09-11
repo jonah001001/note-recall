@@ -87,6 +87,12 @@
             <artifactId>spring-ai-rag</artifactId>
         </dependency>
 
+        <!--MCP-->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-starter-mcp-server-webmvc</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
