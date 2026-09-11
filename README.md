@@ -12,6 +12,7 @@
 - **两级检索**:向量粗召回(topK=20)→ 交叉编码器精排(rerank),分数可解释
 - **Agent 工具**:对话中直接让它保存笔记,写入的内容立刻可被检索(写读闭环)
 - **SSE 流式输出** + 引用溯源(返回回答依据的笔记来源)
+- **MCP Server**: 对外暴漏三个笔记工具，可对接外部Agent
 
 ## 架构
 ```mermaid
@@ -53,6 +54,10 @@ cd evals && python rag_test.py
 |---|---------------------------------------------------------------------|-----|------------------------------------------------------------------|---|---|
 |2026/08/23| 6篇                                                                  | 20个 | similarityThreshold=0.35, topK=20, rerankThreshold=0.1, limit=10 |100%| 92%                                                              |
 |2026/09/11| 21篇| 30个 | similarityThreshold=0.35, topK=20, rerankThreshold=0.1, limit=10 | 100% | 94.4%                                                             |
+
+## MCP Server
+
+项目通过MCP Server(Streamable Http)暴漏检索与笔记工具， 可被Claude Desktop/Cursor等外部Agent调用，检索能力抽象为独立的工具，支持agentic RAG调用模式。
 
 ## 踩坑实录
 
