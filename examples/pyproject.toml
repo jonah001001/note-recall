@@ -1,0 +1,17 @@
+[project]
+name = "note-recall-py"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.141.1",
+    "langchain>=1.4.0",
+    "langchain-mcp-adapters>=0.3.2",
+    "langchain-ollama>=1.1.0",
+    "langchain-openai>=1.6.2",
+    "langchain-text-splitters>=1.1.2",
+    "langgraph>=1.2.11",
+    "numpy>=2.5.3",
+    "pydantic-settings>=2.15.0",
+    "python-dotenv>=1.2.3",
+    "requests>=2.34.2",
+]
