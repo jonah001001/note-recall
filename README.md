@@ -59,6 +59,11 @@ cd evals && python rag_test.py
 
 项目通过MCP Server(Streamable Http)暴漏检索与笔记工具， 可被Claude Desktop/Cursor等外部Agent调用，检索能力抽象为独立的工具，支持agentic RAG调用模式。
 
+## LangChain/LangGraph实现
+
+项目中通过LangChain做入库，LangGraph做状态图，实现note-recall的python版本，并通过MCP复用java侧的rerank检索能力。
+详见[Python实现](./examples/README.md)
+
 ## 踩坑实录
 
 调优过程的完整记录(含失败数据):
